@@ -1,4 +1,4 @@
-name: Windows RDP
+name: github test
 on: workflow_dispatch
 jobs:
   build:
