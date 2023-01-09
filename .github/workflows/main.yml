@@ -3,7 +3,7 @@ on: workflow_dispatch
 jobs:
   build:
     runs-on: windows-latest
-    timeout-minutes: 62
+    timeout-minutes: 120
     steps:
     - name: Download files.
       run: |
